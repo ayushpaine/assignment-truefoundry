@@ -1,14 +1,4 @@
 .header-wrapper{
-    background-color: #004269;
-    height: 36px;
-    padding: 6px 4px;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
 }
