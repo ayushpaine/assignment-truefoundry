@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: white;
+    width: 100%;
     color:black;
     font-weight: 600;
     font-size: 11.25px;
@@ -12,15 +13,17 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content:center;
     top: 0;
     left: 0;
     right: 0;
-    margin-left: 30vw;
+    padding-left: calc(36px + 30vw);
+    z-index: 0;
 }
 
 .content{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .world-icon{
@@ -30,7 +33,6 @@
 }
 
 .info{
-    margin: 0;
     font-weight: 700;
     color: #172b4d;
 }
@@ -40,4 +42,18 @@
     font-weight: 400;
     text-decoration: underline;
     margin: 0 0 0 10px;
+}
+
+.close-icon{
+    color: #42526e;
+    cursor: pointer;
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+}
+.close-icon:hover{
+    color:black;
 }

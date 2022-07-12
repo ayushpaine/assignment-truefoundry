@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../Sidebar";
 import "./HeaderBottom.css";
+import CloseIcon from "@mui/icons-material/Close";
 
 const HeaderBottom = () => {
   return (
@@ -18,6 +19,9 @@ const HeaderBottom = () => {
               visibility setting at any time.
             </div>
             <div className="more-info">Learn more here</div>
+          </div>
+          <div className="close-icon">
+            <CloseIcon style={{ fontSize: 18 }} />
           </div>
         </div>
       </div>
