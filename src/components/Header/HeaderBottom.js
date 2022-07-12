@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import "./HeaderBottom.css";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -13,6 +13,7 @@ const HeaderBottom = () => {
             <img
               className="world-icon"
               src="https://trello-replica.web.app/static/media/earth_green.f5dba22e.svg"
+              alt="green earth"
             />
             <div className="info">
               This board is set to public. Board admins can change its
