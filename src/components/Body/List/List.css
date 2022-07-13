@@ -53,3 +53,57 @@
     align-items: center;
     padding-right: 4px;
 }
+
+.list-add-new-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list-input-form{
+    width: 100%;
+}
+
+.list-new-card-input{
+    width: 100%;
+    font-size: 11px;
+    background-color: #fff;
+    border: 2px solid #0079bf;
+    border-radius: 3px;
+    outline: none;
+    box-sizing: border-box;
+    padding: 4px 8px;
+    margin-bottom: 6px;
+}
+
+.list-new-button-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-add-new-button{
+    color: #fff;
+    border: 0;
+    font-size: 12px;
+    border-radius: 2px;
+    background-color: #0079bf;
+    padding: 6px 12px;
+}
+
+.list-add-new-button:hover{
+    background-color:#00427cd8;
+}
+
+.card-close-icon{
+    color: #42526e;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+.card-close-icon:hover{
+    color:black;
+}

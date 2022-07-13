@@ -12,7 +12,15 @@ const Body = () => {
   return (
     <div className="body-wrapper">
       {notes.map((item) => {
-        return <List id={item.id} title={item.title} tasks={item.tasks} />;
+        return (
+          <List
+            id={item.id}
+            title={item.title}
+            tasks={item.tasks}
+            notes={notes}
+            setNotes={setNotes}
+          />
+        );
       })}
     </div>
   );
