@@ -1,0 +1,11 @@
+.body-wrapper{
+    width: 100%;
+    height: calc(100vh - 142px);
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    padding-left: 36px;
+    padding-top: 4px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}

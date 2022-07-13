@@ -7,7 +7,7 @@ const Title = () => {
     <>
       <div className="title-wrapper">
         <div className="title-name">Kanban Board</div>
-        <div className="title-button">
+        <div className="icon-button">
           <div className="icon-star-container">
             <div className="icon-star">
               <StarBorderIcon style={{ fontSize: "15px" }} />
@@ -19,6 +19,7 @@ const Title = () => {
           <img
             className="world-icon"
             src="https://trello-replica.web.app/static/media/earth_white.b0d834ac.svg"
+            alt="earth-white"
           />
           <div className="public-button-text">Public</div>
         </button>

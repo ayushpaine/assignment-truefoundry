@@ -12,13 +12,13 @@ const HeaderTop = () => {
     { id: "4", name: "Templates" },
   ];
 
-  const [color, setColor] = useState("white");
+  const [color, setColor] = useState("rgba(255,255,255,.8)");
 
   const clickRef = useRef();
 
   const handleClickOutside = (e) => {
     if (!clickRef.current.contains(e.target)) {
-      setColor("white");
+      setColor("rgba(255,255,255,.8)");
     }
   };
 

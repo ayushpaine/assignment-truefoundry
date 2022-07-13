@@ -134,6 +134,7 @@
     display: flex;
     align-items: center;
     left: 25px;
+    top:1px;
 }
 
 .searchbar{
@@ -149,7 +150,7 @@
 
 .searchbar::placeholder{
     color:white;
-    font-size:10.75px;
+    font-size:10.50px;
 }
 .searchbar:focus{
     background-color: white;
