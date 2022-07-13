@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import "./HeaderBottom.css";
 import CloseIcon from "@mui/icons-material/Close";
 

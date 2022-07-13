@@ -35,7 +35,7 @@
     justify-content: center;
 }
 .button-wrapper:hover{
-    background-color: rgba(51, 126, 160, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .button-icon{
     width: 16px;
@@ -57,7 +57,7 @@
    
 }
 .button-wrapper-logo:hover{
-    background-color: rgba(51, 126, 160, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .button-wrapper-logo-img{
@@ -87,7 +87,7 @@
 }
 
 .menu-item:hover{
-    background-color: rgba(51, 126, 160, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .menu-item-caret{
@@ -112,7 +112,7 @@
     justify-content: center
 }
 .create-button:hover{
-    background-color: rgba(51, 126, 160, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .header-top-right{
@@ -180,7 +180,7 @@
     cursor: pointer;
 }
 .button-icon-end:hover{
-    background-color: rgba(51, 126, 160, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .profile-avatar{
     color: #172b4d;
