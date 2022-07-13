@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./List.css";
 import Card from "./Card/Card";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -7,20 +7,21 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const List = ({ id, title, tasks, notes, setNotes }) => {
   const [addCard, setAddCard] = useState(true);
-  const [listTitle, setListTitle] = useState("");
+  const [cardMessage, setCardMessage] = useState("");
+  const ref = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setAddCard(true);
-    setListTitle("");
-    tasks.push({ id: new Date().valueOf(), message: listTitle });
+    setCardMessage("");
+    tasks.push({ id: new Date().valueOf(), message: cardMessage });
     setNotes((prev) =>
       prev.id === id ? [{ id: id, title: title, tasks: tasks }] : [...prev]
     );
   };
 
   const handleChange = (e) => {
-    setListTitle(e.target.value);
+    setCardMessage(e.target.value);
   };
 
   useEffect(() => {
@@ -39,28 +40,35 @@ const List = ({ id, title, tasks, notes, setNotes }) => {
         return <Card message={item.message} />;
       })}
       {addCard ? (
-        <div className="list-new-card" onClick={() => setAddCard(false)}>
+        <div
+          ref={ref}
+          className="add-new-card-wrapper"
+          onClick={() => {
+            setAddCard(false);
+            ref.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           <div className="add-icon">
             <AddIcon style={{ fontSize: "19px" }} />
           </div>
           Add a card
         </div>
       ) : (
-        <div className="list-add-new-card">
-          <form className="list-input-form" onSubmit={(e) => handleSubmit(e)}>
+        <div className="add-new-card">
+          <form className="card-input-form" onSubmit={(e) => handleSubmit(e)}>
             <input
-              className="list-new-card-input"
+              className="new-card-input"
               type="text"
-              value={listTitle}
+              value={cardMessage}
               onChange={(e) => handleChange(e)}
               required
               placeholder="Enter a title for this card..."
               name="card-title"
             />
-            <div className="list-new-button-wrapper">
+            <div className="new-card-button-wrapper">
               <input
                 type="submit"
-                className="list-add-new-button"
+                className="add-new-card-button"
                 value="Add card"
               />
               <div className="card-close-icon" onClick={() => setAddCard(true)}>

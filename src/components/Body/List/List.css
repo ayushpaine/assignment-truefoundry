@@ -8,6 +8,7 @@
     margin: 0 4px;
     border-radius: 3px;
     padding: 10px 8px 8px;
+    overflow-x: hidden;
 }
 
 .list-title{
@@ -29,7 +30,7 @@
     padding-left: 3px;
 }
 
-.list-new-card{
+.add-new-card-wrapper{
     display: flex;
     align-items: center;
     color: #5e6c84;
@@ -41,6 +42,7 @@
     cursor: pointer;
     margin-left:-2px ;
     margin-right: -2px;
+    justify-content: flex-start;
 }
 
 .list-new-card:hover{
@@ -54,18 +56,18 @@
     padding-right: 4px;
 }
 
-.list-add-new-card{
+.add-new-card{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-.list-input-form{
+.card-input-form{
     width: 100%;
 }
 
-.list-new-card-input{
+.new-card-input{
     width: 100%;
     font-size: 11px;
     background-color: #fff;
@@ -75,15 +77,16 @@
     box-sizing: border-box;
     padding: 4px 8px;
     margin-bottom: 6px;
+    display: flex;
 }
 
-.list-new-button-wrapper{
+.new-card-button-wrapper{
     width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.list-add-new-button{
+.add-new-card-button{
     color: #fff;
     border: 0;
     font-size: 12px;
@@ -92,7 +95,7 @@
     padding: 6px 12px;
 }
 
-.list-add-new-button:hover{
+.add-new-card-button:hover{
     background-color:#00427cd8;
 }
 
