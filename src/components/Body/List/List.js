@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./List.css";
 import Card from "./Card/Card";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -9,7 +9,6 @@ import { Droppable } from "react-beautiful-dnd";
 const List = ({ id, title, tasks, notes, setNotes }) => {
   const [addCard, setAddCard] = useState(true);
   const [cardMessage, setCardMessage] = useState("");
-  const clickRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,10 +22,6 @@ const List = ({ id, title, tasks, notes, setNotes }) => {
 
   const handleChange = (e) => {
     setCardMessage(e.target.value);
-  };
-
-  const clickToPos = () => {
-    clickRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -65,10 +60,8 @@ const List = ({ id, title, tasks, notes, setNotes }) => {
       {addCard ? (
         <div
           className="add-new-card-wrapper"
-          ref={clickRef}
           onClick={() => {
             setAddCard(false);
-            clickToPos();
           }}
         >
           <div className="add-icon">
@@ -77,12 +70,11 @@ const List = ({ id, title, tasks, notes, setNotes }) => {
           Add a card
         </div>
       ) : (
-        <div className="add-new-card" ref={clickRef}>
+        <div className="add-new-card">
           <form
             className="card-input-form"
             onSubmit={(e) => {
               handleSubmit(e);
-              clickToPos();
             }}
           >
             <input

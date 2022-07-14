@@ -1,11 +1,11 @@
 export function extractList(object, location) {
   return object
-    .map(function (item, index) {
+    .map(function(item, index) {
       if (item.id === parseInt(location.droppableId)) {
         return object[index];
       }
     })
-    .filter(function (element) {
+    .filter(function(element) {
       return element !== undefined;
     })
     .pop();
