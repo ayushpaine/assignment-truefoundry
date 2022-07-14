@@ -29,9 +29,8 @@ const Body = () => {
     setListTitle(e.target.value);
   };
 
-  const clickToPos = () => {
+  const clickToPos = () =>
     clickRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const onDragEnd = (result) => {
     const { source, destination } = result;
