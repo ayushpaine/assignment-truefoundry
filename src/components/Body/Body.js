@@ -5,13 +5,15 @@ import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Body.css";
 import { DragDropContext } from "react-beautiful-dnd";
+import { extractTasksArray } from "../../helpers/extractTasksArray";
+import { extractList } from "../../helpers/extractList";
 
 const Body = () => {
   const array = JSON.parse(localStorage.getItem("Notes"));
   const [notes, setNotes] = useState(array ? array : []);
-  const clickRef = useRef(null);
   const [addList, setAddList] = useState(true);
   const [listTitle, setListTitle] = useState("");
+  const clickRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,30 +46,10 @@ const Body = () => {
     }
 
     if (source.droppableId !== destination.droppableId) {
-      let currentList = notes
-        .map(function (item, index) {
-          if (item.id === parseInt(source.droppableId)) {
-            return notes[index];
-          }
-        })
-        .filter(function (element) {
-          return element !== undefined;
-        })
-        .pop();
-
-      let destList = notes
-        .map(function (item, index) {
-          if (item.id === parseInt(destination.droppableId)) {
-            return notes[index];
-          }
-        })
-        .filter(function (element) {
-          return element !== undefined;
-        })
-        .pop();
-
-      let currentTasks = (({ tasks }) => ({ tasks }))(currentList).tasks;
-      let destTasks = (({ tasks }) => ({ tasks }))(destList).tasks;
+      let currentList = extractList(notes, source);
+      let destList = extractList(notes, destination);
+      let currentTasks = extractTasksArray(currentList);
+      let destTasks = extractTasksArray(destList);
       let currentCard = currentTasks[source.index];
 
       currentTasks.splice(source.index, 1);
@@ -95,18 +77,8 @@ const Body = () => {
     }
 
     if (source.droppableId === destination.droppableId) {
-      let currentList = notes
-        .map(function (item, index) {
-          if (item.id === parseInt(source.droppableId)) {
-            return notes[index];
-          }
-        })
-        .filter(function (element) {
-          return element !== undefined;
-        })
-        .pop();
-
-      let currentTasks = (({ tasks }) => ({ tasks }))(currentList).tasks;
+      let currentList = extractList(notes, source);
+      let currentTasks = extractTasksArray(currentList);
       let currentCard = currentTasks[source.index];
 
       currentTasks.splice(source.index, 1);
