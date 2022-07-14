@@ -80,7 +80,6 @@
     transform: translateX(-10px);
     color: #fff;
     height: 25px;
-    width: max-content;
     cursor: pointer;
     display: flex;
     align-items: center

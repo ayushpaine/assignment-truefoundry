@@ -9,6 +9,7 @@
     align-items: flex-start;
     flex-wrap: nowrap;
     height: 84.8vh;
+    position: fixed;
 }
 
 ::-webkit-scrollbar{

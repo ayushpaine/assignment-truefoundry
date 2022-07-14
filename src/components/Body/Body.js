@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import List from "./List/List";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
@@ -9,7 +9,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 const Body = () => {
   const array = JSON.parse(localStorage.getItem("Notes"));
   const [notes, setNotes] = useState(array ? array : []);
-
+  const clickRef = useRef(null);
   const [addList, setAddList] = useState(true);
   const [listTitle, setListTitle] = useState("");
 
@@ -25,6 +25,10 @@ const Body = () => {
 
   const handleChange = (e) => {
     setListTitle(e.target.value);
+  };
+
+  const clickToPos = () => {
+    clickRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const onDragEnd = (result) => {
@@ -97,8 +101,10 @@ const Body = () => {
         {addList ? (
           <div
             className="add-list-wrapper"
+            ref={clickRef}
             onClick={() => {
               setAddList(false);
+              clickToPos();
             }}
           >
             <div className="add-list-content">
@@ -108,7 +114,13 @@ const Body = () => {
           </div>
         ) : (
           <div className="add-new-list">
-            <form className="list-input-form" onSubmit={(e) => handleSubmit(e)}>
+            <form
+              className="list-input-form"
+              onSubmit={(e) => {
+                handleSubmit(e);
+                clickToPos();
+              }}
+            >
               <input
                 className="new-list-input"
                 type="text"
