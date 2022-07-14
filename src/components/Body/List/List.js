@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./List.css";
 import Card from "./Card/Card";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const List = ({ id, title, tasks, notes, setNotes }) => {
   const [addCard, setAddCard] = useState(true);
   const [cardMessage, setCardMessage] = useState("");
-  const ref = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,16 +36,32 @@ const List = ({ id, title, tasks, notes, setNotes }) => {
           <MoreHorizIcon style={{ fontSize: "19px" }} />
         </div>
       </div>
-      {tasks.map((item) => {
-        return <Card message={item.message} />;
-      })}
+      <Droppable droppableId={`${id}`}>
+        {(provided) => (
+          <div
+            className="cards"
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            {tasks.map((item, index) => {
+              return (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  index={index}
+                  message={item.message}
+                />
+              );
+            })}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
       {addCard ? (
         <div
-          ref={ref}
           className="add-new-card-wrapper"
           onClick={() => {
             setAddCard(false);
-            ref.current?.scrollIntoView({ behavior: "smooth" });
           }}
         >
           <div className="add-icon">
