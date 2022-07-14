@@ -35,15 +35,63 @@ const Body = () => {
     const { source, destination } = result;
     console.log(result);
 
-    if (!destination) {
+    if (
+      !destination ||
+      (source.droppableId === destination.droppableId &&
+        source.index === destination.index)
+    ) {
       return;
     }
 
-    if (
-      source.droppableId === destination.droppableId &&
-      source.index === destination.index
-    ) {
-      return;
+    if (source.droppableId !== destination.droppableId) {
+      let currentList = notes
+        .map(function (item, index) {
+          if (item.id === parseInt(source.droppableId)) {
+            return notes[index];
+          }
+        })
+        .filter(function (element) {
+          return element !== undefined;
+        })
+        .pop();
+
+      let destList = notes
+        .map(function (item, index) {
+          if (item.id === parseInt(destination.droppableId)) {
+            return notes[index];
+          }
+        })
+        .filter(function (element) {
+          return element !== undefined;
+        })
+        .pop();
+
+      let currentTasks = (({ tasks }) => ({ tasks }))(currentList).tasks;
+      let destTasks = (({ tasks }) => ({ tasks }))(destList).tasks;
+      let currentCard = currentTasks[source.index];
+
+      currentTasks.splice(source.index, 1);
+      destTasks.splice(destination.index, 0, currentCard);
+
+      setNotes((prev) =>
+        prev.id === source.droppableId
+          ? [
+              {
+                id: source.droppableId,
+                title: currentList.title,
+                tasks: currentTasks,
+              },
+            ]
+          : prev.id === destination.droppableId
+          ? [
+              {
+                id: destination.droppableId,
+                title: destList.title,
+                tasks: destTasks,
+              },
+            ]
+          : [...prev]
+      );
     }
 
     if (source.droppableId === destination.droppableId) {
