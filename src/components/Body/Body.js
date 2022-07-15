@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import List from "./List/List";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
@@ -13,6 +13,7 @@ const Body = () => {
   const [notes, setNotes] = useState(array ? array : []);
   const [addList, setAddList] = useState(true);
   const [listTitle, setListTitle] = useState("");
+  const clickRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +27,10 @@ const Body = () => {
 
   const handleChange = (e) => {
     setListTitle(e.target.value);
+  };
+
+  const clickToPos = () => {
+    clickRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const onDragEnd = (result) => {
@@ -116,8 +121,10 @@ const Body = () => {
         {addList ? (
           <div
             className="add-list-wrapper"
+            ref={clickRef}
             onClick={() => {
               setAddList(false);
+              clickToPos();
             }}
           >
             <div className="add-list-content">
@@ -131,6 +138,7 @@ const Body = () => {
               className="list-input-form"
               onSubmit={(e) => {
                 handleSubmit(e);
+                clickToPos();
               }}
             >
               <input
