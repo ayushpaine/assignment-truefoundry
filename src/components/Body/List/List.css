@@ -3,12 +3,11 @@
     width: 212px;
     height: auto;
     max-height: calc(100vh - 180px);
-    overflow-y: auto;
     background-color: #ebecf0;
     margin: 0 4px;
     border-radius: 3px;
     padding: 10px 8px 8px;
-    overflow-x: hidden;
+    margin-bottom: 10px;
 }
 
 .list-title{
@@ -17,7 +16,6 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    overflow-y: auto;
     margin-bottom: 8px;
 }
 
@@ -33,6 +31,7 @@
 .cards{
     margin-top: 6px;
     margin-bottom: 6px;
+ 
 }
 
 .individual-card{
