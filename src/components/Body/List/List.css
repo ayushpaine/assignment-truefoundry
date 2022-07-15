@@ -1,15 +1,25 @@
+
 .list-wrapper{
     min-width: 212px;
     width: 212px;
-    height: auto;
-    max-height: calc(100vh - 180px);
+    max-height: 96%;
     background-color: #ebecf0;
     margin: 0 4px;
     border-radius: 3px;
     padding: 10px 8px 8px;
     margin-bottom: 10px;
+    overflow-y: auto;
 }
-
+.list-wrapper::-webkit-scrollbar{
+    width: 12px;
+}
+.list-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.18);
+    border-radius: 3px;
+}
+.list-wrapper::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,.1);
+}
 .list-title{
     width: 100%;
     display: flex;
@@ -31,7 +41,8 @@
 .cards{
     margin-top: 6px;
     margin-bottom: 6px;
- 
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .individual-card{
