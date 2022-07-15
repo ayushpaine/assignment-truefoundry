@@ -3,6 +3,8 @@ export function extractList(object, location) {
     .map(function(item, index) {
       if (item.id === parseInt(location.droppableId)) {
         return object[index];
+      } else {
+        return undefined;
       }
     })
     .filter(function(element) {
